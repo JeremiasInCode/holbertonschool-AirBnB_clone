@@ -4,6 +4,7 @@
     the data of each instance created.
 """
 
+
 class FileStorage:
     """ FileStorage class"""
     pass
