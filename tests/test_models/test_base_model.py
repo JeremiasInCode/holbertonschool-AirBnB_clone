@@ -53,3 +53,17 @@ class TestBaseModel(unittest.TestCase):
         previous_date = self.model.updated_at
         self.model.save()
         self.assertNotEqual(previous_date, self.model.updated_at)
+
+    def testToDictMethod(self):
+        """ Representation """
+        dict_model = self.model.to_dict()
+        self.assertIsInstance(dict_model, dict)
+        self.assertEqual(dict_model['__class__'], "BaseModel")
+        format = '%Y-%m-%dT%H:%M:%S.%f'
+        create_ex = (dict_model['created_at'], format)
+        update_ex = (dict_model['updated_at'], format)
+        self.assertIsInstance(datetime.strptime(create_ex, datetime))
+        self.assertIsInstance(datetime.strptime(update_ex, datetime))
+
+    if __name__ == "__main__":
+        unittest.main()
