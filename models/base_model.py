@@ -5,10 +5,11 @@ from datetime import datetime
 import models
 
 
+"""BaseModel Module"""
+
+
 class BaseModel:
-    """
-        BaseModel Module
-    """
+
     def __init__(self, *args, **kwargs):
         """Init Value"""
         if kwargs:
